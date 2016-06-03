@@ -259,6 +259,9 @@ th {
   .table-bordered td {
     border: 1px solid #ddd !important;
   }
+  .eigenfont{
+  	color: red;  
+  }
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -4592,7 +4595,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #006699;
   border-color: #080808;
 }
 .navbar-inverse .navbar-brand {
