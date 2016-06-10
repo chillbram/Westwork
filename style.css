@@ -70,3 +70,15 @@ td.vacaturetekst{
 
 .recensies{
 }
+
+.nieuwbericht{
+	height: 40px;
+	text-align: center;
+	padding: 5px 5px 5px 5px;
+}
+
+#icoonplus{
+	vertical-align: middle;
+	height: 15px;
+	width: 15px;
+}
