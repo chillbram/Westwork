@@ -3447,8 +3447,8 @@
 						text-transform: uppercase;
 					}
 
-					#menu .links > li a:hover h3 {
-						color: #151456;
+					#menu .links > li a:hover h3:hover  {
+						color: #aaaaaa;
 					}
 
 				#menu .links > li:first-child {
@@ -3472,7 +3472,6 @@
 			}
 
 		}
-<<<<<<< HEAD
 		
 			#menu ul li > a:before {
 							-moz-osx-font-smoothing: grayscale;
@@ -3556,8 +3555,8 @@
 						text-transform: uppercase;
 					}
 
-					#menu2 .links > li a:hover h3 {
-						color: #15344e;
+					#menu2 .links > li a:hover h3:hover {
+						color: #aaaaaa;
 					}
 
 				#menu2 .links > li:first-child {
@@ -3692,15 +3691,13 @@
 {
   display:block
 }		
-#wrapper #menu .links li a #kleur{
-	color: #FFFFFF;
+#menu .links li a #kleurbedrijf{
+	color: red;
+}
+
+#menu .links li a #kleurdatum{
+	color: #006699;
 }
 
 
-=======
-html, body {
-    border: 0px;
-    margin: 0px;
-    padding: 0px;
-}
->>>>>>> c7ea6e59d1dbbbb26ab2881370fe5801706e85e5
+
