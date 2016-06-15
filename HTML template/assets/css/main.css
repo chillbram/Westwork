@@ -3472,6 +3472,7 @@
 			}
 
 		}
+<<<<<<< HEAD
 		
 			#menu ul li > a:before {
 							-moz-osx-font-smoothing: grayscale;
@@ -3696,3 +3697,10 @@
 }
 
 
+=======
+html, body {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+>>>>>>> c7ea6e59d1dbbbb26ab2881370fe5801706e85e5
