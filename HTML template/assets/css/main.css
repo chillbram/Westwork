@@ -3356,11 +3356,10 @@
 
 /* Footer */
 	#footer {
-		width: 50%;
-		margin: auto;
 	}
 	
 	#footer .icons {
+		text-align:center;
 		color: #aaaaaa;
 		position:absolute; 
 		width:100%; 
@@ -3712,3 +3711,8 @@
 	color: #006699;
 }
 
+head, body{
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
