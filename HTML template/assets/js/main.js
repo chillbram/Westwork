@@ -19,6 +19,7 @@
 		var	$window = $(window),
 			$body = $('body'),
 			$menu = $('#menu'),
+			$menu2 = $('#menu2')
 			$sidebar = $('#sidebar'),
 			$main = $('#main');
 
@@ -59,6 +60,20 @@
 					target: $body,
 					visibleClass: 'is-menu-visible'
 				});
+				
+				$menu2
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'left',
+					target: $body,
+					visibleClass: 'is-menu-visible2'
+				});
+
 
 		// Search (header).
 			var $search = $('#search'),
