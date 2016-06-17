@@ -1,30 +1,45 @@
-<link rel="stylesheet" href="assets/css/main.css" />
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/skel.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 
-<div id="wrapper">
+<html>
+	<head>
+		<title>Westwork</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">												
-						<nav class="links">			       
+						<nav class="links">					       
 					        <ul>
-					        <li class="menu">
-					         	<a class="fa-user" href="#">Accountnaam</a>
-					         	<a class="fa-caret-down" href="#menu2"> </a>
-					        </li>
+					         <li class="menu">
+					         <a class="fa-user" href="#">Accountnaam</a>
+					          <a class="fa-caret-down" href="#menu2"></a>
+					         </li>
 					        </ul>
 					      </nav>
 					      
-						<div id="naam"><h1><a href="#">Westwork</a></h1></div>
+						<h1><a href="#">Westwork</a></h1>
 						
 						<nav class="main">
 							<ul>
 								<li class="search">
 									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Zoeken" />
+									<form id="search" method="POST" action="#">
+										<input type="text" name="search" />
+										<input type="submit" name="submit" value="search" />
 									</form>
 								</li>
 								<li class="menu">
@@ -43,6 +58,7 @@
 									<input type="text" name="query" placeholder="Search" />
 								</form>
 							</section>
+
 						<!-- Links-->
 							<section>
 								<ul class="links">
@@ -85,24 +101,11 @@
 							</section>
 
 					</section>
-
-
+					
+					
+					
 				<section id="menu2">
 
-						<!-- Search
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
-						<!-- Links
-							<section>
-								<ul class="links">	
-									<li> hi</li>					
-								</ul>
-							</section>
-							
-						<!-- Actions--> 
 							<section>
 								<ul class="actions vertical">
 									<li><a href="#" class="button big fit fa-file">CV</a></li>
@@ -115,6 +118,7 @@
 							</section>
 
 					</section>
+					
 					<section id="menu3">
 
 						<!-- Search
@@ -149,4 +153,53 @@
 							</section>
 
 					</section>
+
+
 			</div>
+			
+			<?php
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$search = $mysqli->real_escape_string($_POST['search']);
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Vacature WHERE titel LIKE '%$search%' OR plaats LIKE '%$search%' OR postcode LIKE '%$search%'");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+	    
+		$titel = $rows['titel'];
+		$inhoud = $rows['inhoud'];
+		
+		
+		
+		
+		$output .= "<div class =  \"VacatureInPHP\"> <a href= \"#menu3\"> Naam: $titel</a><br />Nummer: $inhoud<br/></div><br/>";
+		
+		
+	}
+ }
+ // Als er geen overeenkomende resultaten zijn
+ else {
+		$output = "Geen overeenkomende zoekresultaten";
+      }
+}
+?>
+		<?php echo "<div class =  \"Vacatureresultaten\">" . $output . "</div>"; ?>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

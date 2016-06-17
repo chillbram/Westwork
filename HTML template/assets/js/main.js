@@ -20,6 +20,7 @@
 			$body = $('body'),
 			$menu = $('#menu'),
 			$menu2 = $('#menu2')
+			$menu3 = $('#menu3')
 			$sidebar = $('#sidebar'),
 			$main = $('#main');
 
@@ -72,6 +73,19 @@
 					side: 'left',
 					target: $body,
 					visibleClass: 'is-menu-visible2'
+				});
+				
+				$menu3
+				.appendTo($body)
+				.panel({
+					delay: 500,
+					hideOnClick: true,
+					hideOnSwipe: true,
+					resetScroll: true,
+					resetForms: true,
+					side: 'right',
+					target: $body,
+					visibleClass: 'is-menu-visible3'
 				});
 
 
