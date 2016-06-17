@@ -3004,7 +3004,7 @@
 			height: inherit;
 			line-height: inherit;
 			/*padding: 0 15em 0 10em;*/
-			margin: auto;
+			/*margin: auto;*/
 			white-space: nowrap;
 			font-size: 1.6em;
 		}
@@ -3024,7 +3024,7 @@
 			margin-left: 1.5em;
 			/*overflow: hidden;*/
 			padding-left: 1.5em;
-			padding-right: 3em;
+			padding-right: 10em;
 			
 		}
 
@@ -3039,6 +3039,7 @@
 					border-left: 0;
 					margin-left: 0;
 					padding-left: 0;
+					padding-top: 1em;
 				}
 
 				#header .links ul li a {
@@ -3717,8 +3718,8 @@ html, body{
 }
 	
 
-head, body{
-	border: 0px;
-	margin: 0px;
-	padding: 0px;
+
+#naam{
+	margin:auto;
+	text-align:center;
 }
