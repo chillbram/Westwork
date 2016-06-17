@@ -3132,10 +3132,10 @@
 			-ms-transition: all 0.5s ease;
 			transition: all 0.5s ease;
 			max-width: 0;
-			opacity: 0;
-			overflow: hidden;
+			opacity: 1;
+			overflow: visible;
 			padding: 0;
-			padding-right: 20em;
+			padding: 0.6em 20em 0em 2em;
 			white-space: nowrap;
 		}
 
