@@ -1726,7 +1726,7 @@
 		letter-spacing: 0.25em;
 		line-height: 4.8125em;
 		padding: 0 2.5em;
-		text-align: center;
+		text-align: left; /*tekst op buttons*/
 		text-decoration: none;
 		text-transform: uppercase;
 		white-space: nowrap;
@@ -1967,7 +1967,7 @@
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 2.75em;
+		height: 2.89em;
 	}
 
 	textarea {
@@ -2183,7 +2183,7 @@
 	}
 
 		ul li {
-			padding-left: 0.5em;
+			padding-left: 0em; /*padding knoppen links*/
 		}
 
 		ul.alt {
@@ -2240,9 +2240,9 @@
 			padding-left: 0;
 		}
 
-			ul.actions li {
+			ul.actions li {/*ruimte alles even groot */
 				display: inline-block;
-				padding: 0 1.5em 0 0;
+				padding: 0 0em 0 0;
 				vertical-align: middle;
 			}
 
@@ -2310,9 +2310,9 @@
 				padding: 0 1em 0 0;
 			}
 
-			ul.actions.vertical li {
+			ul.actions.vertical li { /*ruimte tussen elkaar*/
 				display: block;
-				padding: 1.5em 0 0 0;
+				padding: 0em 0 0 0;
 			}
 
 				ul.actions.vertical li:first-child {
@@ -3229,7 +3229,8 @@
 		body.single #wrapper {
 			display: block;
 		}
-
+	
+		
 /* Main */
 
 	#main {
@@ -3504,20 +3505,20 @@
 		background: #ffffff;
 		border-left: solid 1px rgba(160, 160, 160, 0.3);
 		box-shadow: none;
-		height: 100%;
+		height: 38.87%;
 		max-width: 80%;
 		overflow-y: auto;
 		position: fixed;
 		left: 0; /*left 0*/
 		top: 0;
 		visibility: hidden;
-		width: 25em;
+		width: 18em;
 		z-index: 10002;
 	}
 
 		#menu2 > * {
 			border-top: solid 1px rgba(160, 160, 160, 0.3);
-			padding: 3em;
+			padding-top: 0em; /*padding om alles heen*/
 		}
 
 			#menu2 > * > :last-child {
@@ -3829,4 +3830,6 @@ html, body{
 #naam{
 	margin:auto;
 	text-align:center;
+}
+#berichttitel{
 }
