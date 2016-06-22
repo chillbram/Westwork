@@ -46,6 +46,7 @@ if(isset($_POST['submitted']))
     <input type='submit' name='Submit' value='Inloggen' />
 </div>
 <div class='short_explanation'><a href='reset-pwd-req.php'>Wachtwoord vergeten?</a></div>
+<div class='short_explanation'><a href='register.php'>Registreren</a></div>
 </fieldset>
 </form>
 <!-- client-side Form Validations:
