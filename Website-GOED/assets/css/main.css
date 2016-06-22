@@ -3122,7 +3122,7 @@
 				display: inline-block;
 				height: 2.5em;
 				position: relative;
-				top: -2px;
+				top: -10px;
 				vertical-align: middle;
 			}
 
@@ -3140,7 +3140,7 @@
 		}
 
 			#header #search input {
-				width: 17em;
+				width: 20em;
 			}
 
 			#header #search.visible {
