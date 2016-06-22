@@ -12,41 +12,40 @@ if(isset($_POST['submitted']))
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<head>
-	  <link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
-      <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-      <title>Inloggen</title>
-      <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />
-      <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
-</head>
-<body>
+	<head>
+		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+		<title>Inloggen</title>
+		<link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />
+		<script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
+	</head>
 
-<!-- Form Code Start -->
-<div id='fg_membersite'>
-<form id='login' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
-<fieldset >
-<legend>Login</legend>
+	<body>
 
-<input type='hidden' name='submitted' id='submitted' value='1'/>
+	<!-- Form Code Start -->
+		<div id='fg_membersite'>
+			<form id='login' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
+			<fieldset >
+			<legend>Inloggen</legend>
 
-<div class='short_explanation'>* required fields</div>
+			<input type='hidden' name='submitted' id='submitted' value='1'/>
 
-<div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+			<div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
+			<div class='container'>
+			<label for='username' >Gebruikersnaam:</label><br/>
+			<input type='text' name='username' id='username' value='<?php echo $fgmembersite->SafeDisplay('username') ?>' maxlength="50" /><br/>
+			<span id='login_username_errorloc' class='error'></span>
+		</div>
 <div class='container'>
-    <label for='username' >UserName*:</label><br/>
-    <input type='text' name='username' id='username' value='<?php echo $fgmembersite->SafeDisplay('username') ?>' maxlength="50" /><br/>
-    <span id='login_username_errorloc' class='error'></span>
-</div>
-<div class='container'>
-    <label for='password' >Password*:</label><br/>
+    <label for='password' >Wachtwoord:</label><br/>
     <input type='password' name='password' id='password' maxlength="50" /><br/>
     <span id='login_password_errorloc' class='error'></span>
 </div>
 
 <div class='container'>
-    <input type='submit' name='Submit' value='Submit' />
+    <input type='submit' name='Submit' value='Inloggen' />
 </div>
-<div class='short_explanation'><a href='reset-pwd-req.php'>Forgot Password?</a></div>
+<div class='short_explanation'><a href='reset-pwd-req.php'>Wachtwoord vergeten?</a></div>
 </fieldset>
 </form>
 <!-- client-side Form Validations:
@@ -59,9 +58,9 @@ Uses the excellent form validation script from JavaScript-coder.com-->
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
 
-    frmvalidator.addValidation("username","req","Please provide your username");
+    frmvalidator.addValidation("username","req","Vul alstublieft een gebruikersnaam in");
     
-    frmvalidator.addValidation("password","req","Please provide the password");
+    frmvalidator.addValidation("password","req","Vul alstublieft een wachtwoord in");
 
 // ]]>
 </script>

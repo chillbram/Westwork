@@ -27,31 +27,30 @@ if(isset($_POST['submitted']))
 <div id='fg_membersite'>
 <form id='register' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 <fieldset >
-<legend>Register</legend>
+<legend>Registreren</legend>
 
 <input type='hidden' name='submitted' id='submitted' value='1'/>
 
-<div class='short_explanation'>* required fields</div>
 <input type='text'  class='spmhidip' name='<?php echo $fgmembersite->GetSpamTrapInputName(); ?>' />
 
 <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 <div class='container'>
-    <label for='name' >Your Full Name*: </label><br/>
+    <label for='name' >Naam: </label><br/>
     <input type='text' name='name' id='name' value='<?php echo $fgmembersite->SafeDisplay('name') ?>' maxlength="50" /><br/>
     <span id='register_name_errorloc' class='error'></span>
 </div>
 <div class='container'>
-    <label for='email' >Email Address*:</label><br/>
+    <label for='email' >E-mailadres:</label><br/>
     <input type='text' name='email' id='email' value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50" /><br/>
     <span id='register_email_errorloc' class='error'></span>
 </div>
 <div class='container'>
-    <label for='username' >UserName*:</label><br/>
+    <label for='username' >Gebruikersnaam:</label><br/>
     <input type='text' name='username' id='username' value='<?php echo $fgmembersite->SafeDisplay('username') ?>' maxlength="50" /><br/>
     <span id='register_username_errorloc' class='error'></span>
 </div>
 <div class='container' style='height:80px;'>
-    <label for='password' >Password*:</label><br/>
+    <label for='password' >Wachtwoord:</label><br/>
     <div class='pwdwidgetdiv' id='thepwddiv' ></div>
     <noscript>
     <input type='password' name='password' id='password' maxlength="50" />
@@ -76,15 +75,15 @@ Uses the excellent form validation script from JavaScript-coder.com-->
     var frmvalidator  = new Validator("register");
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
-    frmvalidator.addValidation("name","req","Please provide your name");
+    frmvalidator.addValidation("name","req","Vul alstublieft een naam in");
 
-    frmvalidator.addValidation("email","req","Please provide your email address");
+    frmvalidator.addValidation("email","req","Vul alstublieft een e-mailadres in");
 
-    frmvalidator.addValidation("email","email","Please provide a valid email address");
+    frmvalidator.addValidation("email","email","Vul alstublieft een geldig e-mailadres in");
 
-    frmvalidator.addValidation("username","req","Please provide a username");
+    frmvalidator.addValidation("username","req","Vul alstublieft een gebruikersnaam in");
     
-    frmvalidator.addValidation("password","req","Please provide a password");
+    frmvalidator.addValidation("password","req","Vul alstublieft een wachtwoord in");
 
 // ]]>
 </script>

@@ -20,7 +20,7 @@ if(isset($_POST['submitted']))
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
 <head>
       <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-      <title>Change password</title>
+      <title>Wachtwoord wijzigen</title>
       <link rel="STYLESHEET" type="text/css" href="style/fg_membersite.css" />
       <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
       <link rel="STYLESHEET" type="text/css" href="style/pwdwidget.css" />
@@ -32,15 +32,13 @@ if(isset($_POST['submitted']))
 <div id='fg_membersite'>
 <form id='changepwd' action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
 <fieldset >
-<legend>Change Password</legend>
+<legend>Wachtwoord wijzigen</legend>
 
 <input type='hidden' name='submitted' id='submitted' value='1'/>
 
-<div class='short_explanation'>* required fields</div>
-
 <div><span class='error'><?php echo $fgmembersite->GetErrorMessage(); ?></span></div>
 <div class='container'>
-    <label for='oldpwd' >Old Password*:</label><br/>
+    <label for='oldpwd' >Oud wachtwoord</label><br/>
     <div class='pwdwidgetdiv' id='oldpwddiv' ></div><br/>
     <noscript>
     <input type='password' name='oldpwd' id='oldpwd' maxlength="50" />
@@ -49,7 +47,7 @@ if(isset($_POST['submitted']))
 </div>
 
 <div class='container'>
-    <label for='newpwd' >New Password*:</label><br/>
+    <label for='newpwd' >Nieuw wachtwoord</label><br/>
     <div class='pwdwidgetdiv' id='newpwddiv' ></div>
     <noscript>
     <input type='password' name='newpwd' id='newpwd' maxlength="50" /><br/>
@@ -83,15 +81,15 @@ Uses the excellent form validation script from JavaScript-coder.com-->
     frmvalidator.EnableOnPageErrorDisplay();
     frmvalidator.EnableMsgsTogether();
 
-    frmvalidator.addValidation("oldpwd","req","Please provide your old password");
+    frmvalidator.addValidation("oldpwd","req","Vul alstublieft uw oude wachtwoord in");
     
-    frmvalidator.addValidation("newpwd","req","Please provide your new password");
+    frmvalidator.addValidation("newpwd","req","Vul alstublieft een nieuw wachtwoord in");
 
 // ]]>
 </script>
 
 <p>
-<a href='login-home.php'>Home</a>
+<a href='login-home.php'>Klik hier om terug te gaan naar de homepage</a>
 </p>
 
 </div>
