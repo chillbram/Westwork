@@ -1,73 +1,189 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
-        <link href="/Westwork2/bootstrap.css" rel="stylesheet">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script type="text/javascript" src="ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script type="text/javascript"  src="bootstrap-3.3.6-dist/js/bootstrap.js"></script>
-    </head>
-  <body>
-      <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Westwork</a>
-      <link rel="stylesheet" type="text/css" href="style.css">
-      <a href="#" class="pull-left"><img src="/path/to/image.png"></a>
-    </div>
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 
-    <!-- Collect the nav links, forms, and other content for toggling-->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <!--<li class="active"><a href="#">Link <span class="sr-only".(current)</span></a></li>-->
-        <li><a href="#">Accountnaam</a></li>
-        <li><a href="#">Accountnaam</a></li>
-        <!--<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>-->
-      </ul>
-      <form class="navbar-form navbar-right"  role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Zoeken">
-        </div>
-        <button type="submit" class="btn btn-default">Zoeken</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#">Link</a></li>-->
-        <!--<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>-->
-      </ul>
-    </div><!— /.navbar-collapse —>
-  </div><!— /.container-fluid —>
-</nav>
-      
-    
-    </body>
+<html>
+	<head>
+		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
+		<title>Westwork</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<nav class="links">					       
+					        <ul>
+					         <li class="menu">
+					          <a class="fa-user" href="#">Accountnaam</a>
+					          <a class="fa-caret-down" href="#menu2"></a>
+					         </li>
+					        </ul>
+					      </nav>
+					      
+						<h1><a href="#">Westwork</a></h1>
+						
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="POST" action="#">
+										<input type="text" name="search" />
+										<input type="submit" name="submit" value="search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-envelope" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links-->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Marco Beun - <span id="kleurbedrijf">Albert Heijn</span> </h3>											
+											<p><span id="kleurdatum">12-05-16:</span> Bij deze nodigen we u uit voor...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+											
+									</li>
+									<li>
+										<a href="#">
+											<h3>Rick van Boven - <span id="kleurbedrijf">Philips</span></h3>
+											<p><span id="kleurdatum">02-06-16:</span> Jammergenoeg is de positie...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Jeremiah Elsten - <span id="kleurbedrijf"> EBAP Con.</span> </h3>
+											<p><span id="kleurdatum">05-06-16:</span> The position is still available, if...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Brom Doel - <span id="kleurbedrijf">Hema</span></h3>
+											<p><span id="kleurdatum">05-06-16:</span> Wij zien u graag maandag voor uw eerste...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+								</ul>
+							</section>
+							
+						<!-- Actions-->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-envelope">Berichten inbox bekijken</a></li>
+								</ul>
+							</section>
+
+					</section>
+					
+					
+					
+				<section id="menu2">
+
+							<section>
+								<ul class="actions vertical">
+								    <li><a href="register.php" class="button big fit fa-file">Registreren</a></li>
+									<li><a href="login.php" class="button big fit fa-file">Inloggen</a></li>
+									<li><a href="#" class="button big fit fa-file">CV</a></li>
+									<li><a href="#" class="button big fit fa-user-plus">Account upgraden</a></li>
+									<li><a href="#" class="button big fit fa-user">Profiel</a></li>
+									<li><a href="#" class="button big fit fa-pencil-square-o ">Vacature beheer</a></li>
+									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
+								</ul>
+							</section>
+
+					</section>
+					
+					
+					
+					
+
+			</div>
+			
+			<?php
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$search = $mysqli->real_escape_string($_POST['search']);
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Vacature INNER JOIN Bedrijf ON Vacature.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Vacature.titel LIKE '%$search%' OR Vacature.plaats LIKE '%$search%' OR Vacature.postcode LIKE '%$search%'");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+	    
+		$titel = $rows['titel'];
+		$inhoud = $rows['inhoud'];
+		$bedrijfsnaam = $rows['bedrijfsnaam'];
+		$plaats = $rows['plaats'];
+		$beoordeling = $rows['beoordeling'];
+
+		
+		$output .= "<div class =  \"VacatureInPHP\">
+		<a href= \"#menu3\"><span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
+		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
+		$inhoud<br/></div><br/>";
+		
+	}
+ }
+ // Als er geen overeenkomende resultaten zijn
+ else {
+		$output = "Geen overeenkomende zoekresultaten";
+      }
+}
+?>
+<section id="menu3">
+
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-file">CV</a></li>
+									<li><?php echo $output; ?></li>		
+								</ul>
+								
+							</section>
+
+					</section>
+		<?php echo "<div class =  \"Vacatureresultaten\">" . $output . "</div>"; ?>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
-
