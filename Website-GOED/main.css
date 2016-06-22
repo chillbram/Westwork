@@ -1868,7 +1868,7 @@
 				color: #aaaaaa;
 				content: '\f002';
 				display: block;
-				height: 2.75em;
+				height: 2em;
 				left: 0;
 				line-height: 2.75em;
 				position: absolute;
@@ -3122,7 +3122,8 @@
 				display: inline-block;
 				height: 2.5em;
 				position: relative;
-				top: -2px;
+				top: -10px;
+				left: -20px;
 				vertical-align: middle;
 			}
 
@@ -3140,7 +3141,7 @@
 		}
 
 			#header #search input {
-				width: 17em;
+				width: 20em;
 			}
 
 			#header #search.visible {
