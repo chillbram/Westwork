@@ -14,9 +14,166 @@ $fgmembersite->LogOut();
 </head>
 <body>
 
-<h2>U bent nu uitgelogd</h2>
-<p>
-<a href='login.php'>Klik hier om opnieuw in te loggen</a>
+<link rel="stylesheet" href="assets/css/main.css" />
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header">
+						<nav class="links">					       
+					        <ul>
+					         <li class="menu">
+					          <a class="fa-user" href="#"><?= $fgmembersite->UserFullName(); ?></a>
+					          <a class="fa-caret-down" href="#menu2"></a>
+					         </li>
+					        </ul>
+					      </nav>
+					      
+						<h1><a href="#">Westwork</a></h1>
+						
+						<nav class="main">
+							<ul>
+								<li class="search">
+									
+									
+									<form id="search" method="POST" action="#">
+										<input type="text" name="search" placeholder="Zoeken..." />
+										<input type="submit" name="submit" value="" style="display: none" />
+									</form>
+										<a class="fa-search" href="#search">Search</a>
+								</li>
+								<li class="menu">
+									<a class="fa-envelope" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+						<!-- Links-->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Marco Beun - <span id="kleurbedrijf">Albert Heijn</span> </h3>											
+											<p><span id="kleurdatum">12-05-16:</span> Bij deze nodigen we u uit voor...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+											
+									</li>
+									<li>
+										<a href="#">
+											<h3>Rick van Boven - <span id="kleurbedrijf">Philips</span></h3>
+											<p><span id="kleurdatum">02-06-16:</span> Jammergenoeg is de positie...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Jeremiah Elsten - <span id="kleurbedrijf"> EBAP Con.</span> </h3>
+											<p><span id="kleurdatum">05-06-16:</span> The position is still available, if...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Brom Doel - <span id="kleurbedrijf">Hema</span></h3>
+											<p><span id="kleurdatum">05-06-16:</span> Wij zien u graag maandag voor uw eerste...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+								</ul>
+							</section>
+							
+						<!-- Actions-->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-envelope">Berichten inbox bekijken</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+
+				<section id="menu2">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+						<!-- Links
+							<section>
+								<ul class="links">	
+									<li> hi</li>					
+								</ul>
+							</section>
+							
+						<!-- Actions--> 
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-file">CV</a></li>
+									<li><a href="#" class="button big fit fa-user-plus">Account upgraden</a></li>
+									<li><a href="#" class="button big fit fa-user">Profiel</a></li>
+									<li><a href="#" class="button big fit fa-pencil-square-o ">Vacature beheer</a></li>
+										<li><a href="change-pwd.php" class="button big fit fa-lock">Wachtwoord wijzigen</a></li>
+									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
+									<li><a href="#" class="button big fit fa-sign-out">Uitloggen</a></li>
+								</ul>
+							</section>
+
+					</section>
+					<section id="menu3">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+						<!-- Links-->
+							<section>
+								<ul>
+									<li>
+										
+									</li>
+									<li>
+										
+									</li>
+									<li>
+										
+									</li>
+									<li>
+										
+									</li>
+								</ul>
+							</section>
+							
+						<!-- Actions-->
+							<section>
+								<ul class="actions vertical">
+									
+								</ul>
+							</section>
+
+					</section>
+			</div>
+			
+<h2 style="padding-left:36.3em">U bent nu uitgelogd</h2>
+<p style="padding-left:41.7em">
+<a s href='login.php'>Klik hier om opnieuw in te loggen</a>
 </p>
 
 </body>

@@ -29,7 +29,7 @@ if(!$fgmembersite->CheckLogin())
 	<body>
 			
 		<!-- Wrapper -->
-			<div id="wrapper">
+<div id="wrapper">
 
 				<!-- Header -->
 					<header id="header">
@@ -47,11 +47,13 @@ if(!$fgmembersite->CheckLogin())
 						<nav class="main">
 							<ul>
 								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
+									
+									
 									<form id="search" method="POST" action="#">
-										<input type="text" name="search" />
-										<input type="submit" name="submit" value="search" />
+										<input type="text" name="search" placeholder="Zoeken..." />
+										<input type="submit" name="submit" value="" style="display: none" />
 									</form>
+										<a class="fa-search" href="#search">Search</a>
 								</li>
 								<li class="menu">
 									<a class="fa-envelope" href="#menu">Menu</a>
@@ -124,7 +126,7 @@ if(!$fgmembersite->CheckLogin())
 									<li><a href="#" class="button big fit fa-user">Profiel</a></li>
 									<li><a href="#" class="button big fit fa-pencil-square-o ">Vacature beheer</a></li>
 									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
-									<li><a href="change-pwd.php" class="button big fit fa-cog">Wachtwoord wijzigen</a></li>
+									<li><a href="change-pwd.php" class="button big fit fa-lock">Wachtwoord wijzigen</a></li>
 									<li><a href="logout.php" class="button big fit fa-sign-out">Uitloggen</a></li>
 								</ul>
 							</section>
