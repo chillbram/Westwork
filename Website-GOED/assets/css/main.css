@@ -3842,3 +3842,22 @@ html, body{
 }
 #berichttitel{
 }
+
+.Vacatureresultaten{
+	text-align: left;
+	margin-left: 10px;
+	
+	
+}
+
+.VacatureInPHP {
+	display: inline-block;
+    width: 750px;
+    height: 175px;
+    margin: 10px;
+    border: 0.5px solid black;
+	background-color: white;
+	overflow: hidden;
+    text-overflow: "...";
+	
+}

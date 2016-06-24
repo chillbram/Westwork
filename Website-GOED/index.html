@@ -4,7 +4,66 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<script>
+    function SetCookie(c_name,value,expiredays)
+        {
+		
+   
+            var exdate=new Date()
+            exdate.setTime(exdate.getTime()+expiredays)
+            document.cookie=c_name+ "=" +escape(value)+
+            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    		
+        }
+</script>
+<script>
+function delete_cookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+</script>
+<?php
 
+
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$search = $mysqli->real_escape_string($_POST['search']);
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Vacature INNER JOIN Bedrijf ON Vacature.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Vacature.titel LIKE '%$search%' OR Vacature.plaats LIKE '%$search%' OR Vacature.postcode LIKE '%$search%'");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+		$titel = $rows['titel'];
+		$inhoud = $rows['inhoud'];
+		$bedrijfsnaam = $rows['bedrijfsnaam'];
+		$plaats = $rows['plaats'];
+		$beoordeling = $rows['beoordeling'];
+		
+
+		
+		$output .= "<div class =  \"VacatureInPHP\">
+		<a id=\"KlikTitel\" href= \"#menu3\" onClick=\"SetCookie('Geef','$titel','1500');\"><span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
+		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
+		$inhoud<br/></div><br/>";
+		
+		
+		
+	}
+ }
+ // Als er geen overeenkomende resultaten zijn
+ else {
+		$output = "Geen overeenkomende zoekresultaten";
+      }
+}
+?>
 <html>
 	<head>
 		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
@@ -15,8 +74,11 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	</head>
 	<body>
+	
+	
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -127,57 +189,26 @@
 
 			</div>
 			
-			<?php
-$output = null;
 
-if(isset($_POST["submit"]))
-{
-// connect to the database
-$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
-
-// Get String value of input textbox
-$search = $mysqli->real_escape_string($_POST['search']);
-
-// Query the database
- $resultSet = $mysqli->query("SELECT * FROM Vacature INNER JOIN Bedrijf ON Vacature.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Vacature.titel LIKE '%$search%' OR Vacature.plaats LIKE '%$search%' OR Vacature.postcode LIKE '%$search%'");
- 
- if($resultSet->num_rows > 0)
- {
-	while($rows = $resultSet->fetch_assoc())
-	{
-	    
-		$titel = $rows['titel'];
-		$inhoud = $rows['inhoud'];
-		$bedrijfsnaam = $rows['bedrijfsnaam'];
-		$plaats = $rows['plaats'];
-		$beoordeling = $rows['beoordeling'];
-
-		
-		$output .= "<div class =  \"VacatureInPHP\">
-		<a href= \"#menu3\"><span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
-		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
-		$inhoud<br/></div><br/>";
-		
-	}
- }
- // Als er geen overeenkomende resultaten zijn
- else {
-		$output = "Geen overeenkomende zoekresultaten";
-      }
-}
-?>
-<section id="menu3">
-
+<section id= "menu3">
+				<script> $('#menu3').load(document.URL +  ' #menu3'); </script>
 							<section>
-								<ul class="actions vertical">
-									<li><a href="#" class="button big fit fa-file">CV</a></li>
-									<li><?php echo $output; ?></li>		
-								</ul>
-								
+							 
+								<?php
+									$cookie_name = "Geef";
+									If (!isset($_COOKIE[$cookie_name])) {
+									echo "cookie is not set"; }
+									else {
+									// action if cookie is set
+									echo $_COOKIE[$cookie_name];
+									}
+									
+								?>
 							</section>
 
 					</section>
 		<?php echo "<div class =  \"Vacatureresultaten\">" . $output . "</div>"; ?>
+	
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
