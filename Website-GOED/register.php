@@ -24,6 +24,10 @@ if(isset($_POST['submitted']))
 
 <body>
 <link rel="stylesheet" href="assets/css/main.css" />
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
 <div id="wrapper">
 
@@ -191,19 +195,19 @@ if(isset($_POST['submitted']))
 				</div>
 				
 				<div class='container'>
-					<label for='email' >E-mailadres:</label><br/>
+					<label for='email' >E-mailadres:</label>
 					<input type='text' name='email' id='email' value='<?php echo $fgmembersite->SafeDisplay('email') ?>' maxlength="50" /><br/>
 					<span id='register_email_errorloc' class='error'></span>
 				</div>
 
 				<div class='container'>
-					<label for='username' >Gebruikersnaam:</label><br/>
+					<label for='username' >Gebruikersnaam:</label>
 					<input type='text' name='username' id='username' value='<?php echo $fgmembersite->SafeDisplay('username') ?>' maxlength="50" /><br/>
 					<span id='register_username_errorloc' class='error'></span>
 				</div>
 
 				<div class='container' style='height:80px;'>
-					<label for='password' >Wachtwoord:</label><br/>
+					<label for='password' >Wachtwoord:</label>
 					<div class='pwdwidgetdiv' id='thepwddiv' ></div>
 					<noscript>
 					<input type='password' name='password' id='password' maxlength="50" />
