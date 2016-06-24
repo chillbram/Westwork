@@ -131,8 +131,8 @@ if(isset($_POST['submitted']))
 						<!-- Actions--> 
 							<section>
 								<ul class="actions vertical">
-									<li><a href="#" class="button big fit fa-user-plus">Registreren</a></li>
-									<li><a href="#" class="button big fit fa-sign-in">Inloggen</a></li>
+									<li><a href="register.php" class="button big fit fa-user-plus">Registreren</a></li>
+									<li><a href="login.php" class="button big fit fa-sign-in">Inloggen</a></li>
 								</ul>
 							</section>
 
