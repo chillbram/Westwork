@@ -7,19 +7,14 @@
 <script>
     function SetCookie(c_name,value,expiredays)
         {
-		
-   
             var exdate=new Date()
             exdate.setTime(exdate.getTime()+expiredays)
             document.cookie=c_name+ "=" +escape(value)+
             ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
     		
         }
-</script>
-<script>
-function delete_cookie( name ) {
-  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+		
+	
 </script>
 <?php
 
@@ -46,13 +41,31 @@ $search = $mysqli->real_escape_string($_POST['search']);
 		$bedrijfsnaam = $rows['bedrijfsnaam'];
 		$plaats = $rows['plaats'];
 		$beoordeling = $rows['beoordeling'];
+		$beroepsgroep = $rows['beroepsgroep'];
+		$opleidingsniveau = $rows['opleidingsniveau'];
+		$werkweek = $rows['uren'];
+		$salaris = $rows['salaris'];
 		
-
+		// Output van menu3 - het menu dat aan de rechterkant opent
+		$outputmenu .= "<div><span style='color: blue;'" . $titel . "</span>-" . $beoordeling . "<br/><br/>" . $plaats . "</div>";
 		
+		
+		// De output van vacatures op het hoofdscherm
 		$output .= "<div class =  \"VacatureInPHP\">
-		<a id=\"KlikTitel\" href= \"#menu3\" onClick=\"SetCookie('Geef','$titel','1500');\"><span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
+		<a href= \"#menu3\" onClick=\"
+		SetCookie('GeefTitel','$titel','1500'); 
+		SetCookie('GeefBedrijfsnaam','$bedrijfsnaam','1500');
+		SetCookie('GeefBeoordeling','$beoordeling','1500'); 
+		SetCookie('GeefTitel','$titel','1500');
+		SetCookie('GeefPlaats','$plaats','1500');
+		SetCookie('GeefBeroepsgroep','$beroepsgroep','1500');
+		SetCookie('GeefOpleidingsniveau','$opleidingsniveau','1500');
+		SetCookie('GeefWerkweek','$werkweek','1500');
+		SetCookie('GeefSalaris','$salaris','1500');
+		\">
+		<span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
 		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
-		$inhoud<br/></div><br/>";
+		<span style=\"text-overflow: ellipsis;\">$inhoud</span><br/></div><br/>";
 		
 		
 		
@@ -191,19 +204,39 @@ $search = $mysqli->real_escape_string($_POST['search']);
 			
 
 <section id= "menu3">
-				<script> $('#menu3').load(document.URL +  ' #menu3'); </script>
 							<section>
-							 
 								<?php
-									$cookie_name = "Geef";
+									$cookie_name = "GeefTitel";
+									$cookie_name2 = "GeefBedrijfsnaam";
+									$cookie_name3 = "GeefBeoordeling";
+									$cookie_name4 = "GeefPlaats";
+									$cookie_name5 = "GeefBeroepsgroep";
+									$cookie_name6 = "GeefOpleidingsniveau";
+									$cookie_name7 = "GeefWerkweek";
+									$cookie_name8 = "GeefSalaris";
 									If (!isset($_COOKIE[$cookie_name])) {
 									echo "cookie is not set"; }
 									else {
 									// action if cookie is set
-									echo $_COOKIE[$cookie_name];
+									echo "<h3> $_COOKIE[$cookie_name] </h3>
+									<span style=\"font-size: 20px; font-weight: 400;\"> $_COOKIE[$cookie_name2] <i class= \"fa fa-star\" aria-hidden='true'></i> $_COOKIE[$cookie_name3]
+									<br/> Te $_COOKIE[$cookie_name4] <i class= \"fa fa-star\" aria-hidden='true'></i> (BEOORDELING) </span><br/><br/>
+									
+									<a href=\"#\" class=\"button big fit fa-envelope\"> Vacature Locken </a>
+									<hr style=\"height: 5px; border: 0; box-shadow: 0 5px 5px -5px #8c8b8b inset;\">
+									<u style=\"font-weight: 300;\"> Beroepsgroep:</u><br/> $_COOKIE[$cookie_name5] <br/><br/>
+										 <u style=\"font-weight: 300;\"> Opleidingsniveau</u><br/> $_COOKIE[$cookie_name6] <br/><br/>
+										 <u style=\"font-weight: 300;\"> Werkweek:</u><br/> $_COOKIE[$cookie_name7]<br/><br/>
+										 <u style=\"font-weight: 300;\"> Salaris:</u><br/> $_COOKIE[$cookie_name8] euro  <br/><br/>
+									
+									
+									<a href=\"#\" class=\"button big fit fa-envelope\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lees meer </a>";
+										 
 									}
 									
 								?>
+							
+							
 							</section>
 
 					</section>
