@@ -19,7 +19,7 @@
 		<div id="wrapper">
 			<div style="width: 100%">
 				<h1 style="text-align: center;"><span style="font-size: 20px">Vacature aanmaken</span><br />Stap 1: Algemene informatie | <a href="/vacatureaanmaak stap 2.html" style="font-size:10px; color: dimgray">Stap 2: Aanvullende informatie</a></h1><br />
-				<form method="get" action="#">
+				<form method="post" action="#">
 					<input type="text" name="functietitel" placeholder="Functietitel..." style="width: 70%" />
 					<div style="width:50%">
 					<br /><h2>Algemene informatie:</h2>
@@ -58,7 +58,16 @@
 					</select>
 					<br />Werkweek:
 					<input type="number" name="uurmin" placeholder="Min. uur" min="0" max="168" style="width: 15%" /> - <input type="number" name="uurmax" placeholder="Max. uur" min="0" max="168" style="width: 15%" />&nbsp;uur
-						<div style="text-align: center; padding-top: 50px;">
+						<div id="locations" style="width:100%; padding-top: 20px">
+						<input type="text" class="locatieAdd" placeholder="Locatie...">
+						<script type="text/javascript">
+        					function add_fields() {
+    							document.getElementById('locations').innerHTML += '<input type="text" class="locatieAdd" placeholder="Locatie...">';
+							}
+						</script>
+						 </div>
+					<button type="button" class="locaties" onclick="add_fields();">Locatie toevoegen</button>
+											<div style="text-align: center; padding-top: 50px;">
 							<input type="submit" name="verder" value="Verder >" style="background-color: lightblue">
 						</div>
 					</div>

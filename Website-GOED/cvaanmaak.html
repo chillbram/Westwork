@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Vacature aanmaken - stap 2</title>
+		<title>Cv aanmaken</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -17,9 +17,16 @@
 	<body>
 		<iframe src="navbar tijdelijk.html" scrolling="no" width="100%" style="border: block"> </iframe>
 		<div id="wrapper">
-			<div style="width: 100%">
-				<h1 style="text-align: center;"><span style="font-size: 20px">Vacature aanmaken</span><br /><a href="/vacatureaanmaak stap 1.html" style="font-size:10px; color: dimgray">Stap 1: Algemene informatie</a> | Stap 2: Aanvullende informatie</h1><br />
-				Beschrijving: <textarea rows="8"> </textarea>
+			<h1>Cv aanmaken</h1>
+			<input type="text" name="cvnaam" placeholder="Titel..." style="margin: 20px 0px 20px 0px">
+			<button onclick="add_cats();" style="margin-bottom: 20px;">Categorie toevoegen</button>
+			<script type="text/javascript">
+        		function add_cats() {
+    			document.getElementById('categorieen').innerHTML += '<input type="text" class="cattitel" placeholder="Categorienaam..."><textarea rows="6" style="margin-bottom: 20px;"> </textarea>';
+				}
+			</script>
+			<div id="categorieen">
+				
 			</div>
 		</div>
 		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
