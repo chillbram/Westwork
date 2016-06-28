@@ -1,9 +1,5 @@
 <!DOCTYPE HTML>
-<!--
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<?php session_start(); ?>
 <script>
     function SetCookie(c_name,value,expiredays)
         {
@@ -65,7 +61,7 @@ $search = $mysqli->real_escape_string($_POST['search']);
 		\">
 		<span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
 		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
-		<span style=\"text-overflow: ellipsis;\">$inhoud</span><br/></div><br/>";
+		<span style=\"text-overflow: ellipsis;\">$inhoud</span><br></div><br>";
 		
 		
 		
@@ -113,7 +109,7 @@ $search = $mysqli->real_escape_string($_POST['search']);
 							<ul>
 								<li class="search">
 									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="POST" action="#">
+									<form id="search" method="POST" action="http://westwork.comxa.com/#">
 										<input type="text" name="search" />
 										<input type="submit" name="submit" value="" style="display: none;"/>
 									</form>
