@@ -3843,21 +3843,46 @@ html, body{
 #berichttitel{
 }
 
-.Vacatureresultaten{
-	text-align: left;
-	margin-left: 10px;
-	
-	
+.vaclijst {
+  margin: 0;
+  padding: 0;
 }
 
-.VacatureInPHP {
-	display: inline-block;
-    width: 750px;
-    height: 175px;
-    margin: 10px;
-    border: 0.5px solid black;
-	background-color: white;
-	overflow: hidden;
-    text-overflow: "...";
-	
+.vaclijst div {
+  margin: 20px;
 }
+
+.vaclijst ul {
+  list-style-type: none;
+  width: 500px;
+}
+
+
+
+.vaclijst li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+.vaclijst li p {
+  font: 200 12px/1.5 "Raleway", Georgia, Times New Roman, serif;
+}
+
+.vaclijst li {
+  padding: 10px;
+  overflow: auto;
+}
+
+.vaclijst li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+/*.vaclijst li{
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: rgba(160, 160, 160, 0.3);
+	border-spacing: 2em;
+	top:100%;
+}*/
+
