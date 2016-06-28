@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Beoordeling plaatsen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+		<iframe src="navbar tijdelijk.html" scrolling="no" width="100%" style="border: block"> </iframe>
+		<div id="wrapper">
+			<h1>Beoordeling plaatsen</h1>
+			<div style="width: 100%">
+				<p style="height:10%; float:left; vertical-align: middle">Ik heb gewerkt bij <span style="color: blue">Albert Heijn</span> als&nbsp;&nbsp;</p>
+				<input type="text" placeholder="Functietitel..." style="height:10%; width:30%; float:left; padding: 0 4px 0 4px">
+				<p style="height:10%; float:left; vertical-align: middle">&nbsp;&nbsp; en beoordeel deze werkgever met een&nbsp;&nbsp;</p>
+				<input type="number" min="1" max="10" step="0.1" placeholder="1-10" style="height:10%; width:5%; float:left;">
+			</div>
+			<div style="clear:both"></div>
+			<h3>Recensie</h3>
+			<input type="text" readonly="readonly" class="alineatitel" value="Samenvatting">
+			<textarea placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>
+			<div id="alinea">
+				
+			</div>
+			<button onclick="add_alineas();" style="margin-bottom: 20px;">Categorie toevoegen</button>
+			<script type="text/javascript">
+        		function add_alineas() {
+    			document.getElementById('alinea').innerHTML += '<input type="text" class="alineatitel" placeholder="Kopje..."><textarea placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>';
+				}
+			</script>
+		</div>
+		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
+		
+<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
