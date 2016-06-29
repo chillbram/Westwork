@@ -1,5 +1,24 @@
 <!DOCTYPE HTML>
+<?php
 
+
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$functie = $mysqli->real_escape_string($_POST['functie']);
+$cijfer = $mysqli->real_escape_string($_POST['cijfer']);
+$inhoud = $mysqli->real_escape_string($_POST['beschrijving']);
+$mydate=date("d-m-Y");
+$datum = "$mydate";
+// Query the database
+ $resultSet = $mysqli->query("INSERT INTO Review (bedrijfID, bedrijfsnaam, Functie, FunctieBeoordeling, reviewInhoud, geplaatstDatum) VALUES (1,'Herman de Groot','$functie','$cijfer', '$inhoud', '$datum')");
+}
+?>
 
 <html>
 	<head>
