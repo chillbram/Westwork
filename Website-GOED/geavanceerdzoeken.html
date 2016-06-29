@@ -74,12 +74,37 @@
   					<div style="float:left; width: 30%">
 						<h3 style="margin: 5px">Locatie</h3>
 						<div style="float:left;">
-							<input type="checkbox" name="locatie"> Postcode <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" title="Postcode" placeholder="1234AB" style="width: 30%; height: 30px; display: inline"> op maximaal <input type="number" name="afstand" min="0" max="200" step="1"> km afstand.
+							<input type="checkbox" name="locatie"> Postcode <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" title="Postcode" placeholder="1234AB" style="width: 30%; height: 30px; display: inline"> op maximaal <input type="number" style="width:50px" name="afstand" min="0" max="200" step="1"> km afstand.
 						</div>
   					</div>
+  					<div style="float:left; width: 30%">
+						<h3 style="margin: 5px">Sector</h3>
+						<div style="float:left;">
+							<input type="checkbox" name="locatie" style="float:left; width:10%; margin-top: 8px;">
+  							<select style="float: left; width: 80%; -moz-appearance: menulist; -webkit-appearance: menulist; appearance: menu; height:30px;">
+								<option value="financieel">Accounting / Financieel</option>
+  								<option value="administratief">Administratief / Secretarieel</option>
+  								<option value="bouw">Bouw</option>
+  								<option value="creatief">Creatief / Design</option>
+  								<option value="gezondheidszorg">Gezondheidszorg</option>
+  								<option value="horeca">Horeca</option>
+  								<option value="installatie">Installatie / Onderhoud / Reparatie</option>
+  								<option value="it">IT / Software Development</option>
+  								<option value="juridisch">Juridisch</option>
+  								<option value="klantenservice">Klantenservice</option>
+  								<option value="kwaliteitscontrole">Kwaliteitscontrole / Veiligheid</option>
+  								<option value="logistiek">Logistiek / Transport / Inkoop</option>
+  								<option value="management">Management / Business</option>
+  								<option value="marketing">Marketing / Product</option>
+							</select>
+						</div>
   					</div>
 				</form>
 			</div>
+		</div>
+		<div style="clear:both"></div>
+		<div style="width: 100%; text-align: center;">
+		<button style="margin: 20px 0 30px 0; background-color:lightblue; width: 200px; text-align: center">Zoeken</button>
 		</div>
 		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
 		
