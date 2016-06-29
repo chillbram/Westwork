@@ -1,11 +1,46 @@
-<form method="post" enctype="multipart/form-data">
-<table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-<tr> 
-<td width="246">
-<input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-<input name="userfile" type="file" id="userfile"> 
-</td>
-<td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-</tr>
-</table>
-</form>
+<?php
+
+$target_dir = " /upload";
+$target_file = basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+/* Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}*/
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($textFileType != "pdf" && $textFileType != "docx" && $textFileType != "doc") 
+{
+    echo "Sorry, alleen pdf, docx en doc bestanden zijn toegestaan.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+?>
