@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>TITEL</title>
+		<title>Geavanceerd zoeken</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -17,7 +17,69 @@
 	<body>
 		<iframe src="navbar tijdelijk.html" scrolling="no" width="100%" style="border: block"> </iframe>
 		<div id="wrapper">
-			
+			<!---->
+			<div style="text-align:center">
+				<h1>Geavanceerd zoeken</h1>
+				<form id="search" method="get" action="#" style="width: 50%; margin: 0 auto;">
+					<input type="text" name="query" placeholder="Zoeken..." />
+				</form>
+				<p style="font-size:14px; margin: 15px 0 15px 0">De selectievakjes tonen welke filters er aan staan.</p>
+			</div>
+			<div>
+				<form>
+					<div style="width=100%; margin: 30px 0 30px 0">
+  					<div style="float:left; width: 30%">
+  						<script>
+							function toggle(source) {
+  								checkboxes = document.getElementsByName('opleidingsniveau');
+  								for(var i=0, n=checkboxes.length;i<n;i++) {
+    								checkboxes[i].checked = source.checked;
+  								}
+							}
+						</script>
+  						<h3 style="margin: 5px">Opleidingsniveau</h3>
+  						<input type="checkbox" onclick="toggle(this)"><i>Selecteer alles/niks</i>
+  						<input type="checkbox" name="opleidingsniveau" value="basisonderwijs">Basisonderwijs<br/>
+  						<input type="checkbox" name="opleidingsniveau" value="praktijkonderwijs">Praktijkonderwijs
+  						<input type="checkbox" name="opleidingsniveau" value="vmbo">Vmbo
+  						<input type="checkbox" name="opleidingsniveau" value="havo">Havo
+  						<input type="checkbox" name="opleidingsniveau" value="vwo">Vwo<br />
+  						<input type="checkbox" name="opleidingsniveau" value="mbo">Mbo
+  						<input type="checkbox" name="opleidingsniveau" value="hbo">Hbo
+  						<input type="checkbox" name="opleidingsniveau" value="universitair">Universitair
+  					</div>
+					<div style="float:left; width: 30%;">
+						<h3 style="margin: 5px">Salaris</h3>
+						<div style="float:left; white-space: nowrap;">
+  							<input type="checkbox" name="salaris" value="Min">Minimaal:<br/>
+  							<input type="checkbox" name="salaris" value="Max">Maximaal:
+  						</div>
+  						<div style="float:left; margin-left: 5px;">
+  							<input type="number"><br /><input type="number">
+  						</div>
+  					</div>
+					<div style="float:left; width: 30%;">
+						<h3 style="margin: 5px">Werkweek</h3>
+						<div style="float:left; white-space: nowrap;">
+  							<input type="checkbox" name="werkweek" value="Min">Minimaal:<br/>
+  							<input type="checkbox" name="werkweek" value="Max">Maximaal:
+  						</div>
+  						<div style="float:left; margin-left: 5px;">
+  							<input type="number"><br /><input type="number">
+  						</div>
+  					</div>
+  					</div>
+  					<div style="clear:both"></div>
+					<div style="width=100%; margin: 30px 0 30px 0">
+  					<div style="float:left; width: 30%">
+						<h3 style="margin: 5px">Locatie</h3>
+						<div style="float:left;">
+							<input type="checkbox" name="locatie"> Postcode <input type="text" pattern="[1-9][0-9]{3}\s?[a-zA-Z]{2}" title="Postcode" placeholder="1234AB" style="width: 30%; height: 30px; display: inline"> op maximaal <input type="number" name="afstand" min="0" max="200" step="1"> km afstand.
+						</div>
+  					</div>
+  					</div>
+				</form>
+			</div>
 		</div>
 		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
 		
