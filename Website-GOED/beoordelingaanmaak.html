@@ -20,9 +20,10 @@
 			<h1>Beoordeling plaatsen</h1>
 			<div style="width: 100%">
 				<p style="height:10%; float:left; vertical-align: middle">Ik heb gewerkt bij <span style="color: blue">Albert Heijn</span> als&nbsp;&nbsp;</p>
-				<input type="text" placeholder="Functietitel..." style="height:10%; width:30%; float:left; padding: 0 4px 0 4px">
+				<input type="text" placeholder="functietitel..." style="height:10%; width:30%; float:left; padding: 0 4px 0 4px">
 				<p style="height:10%; float:left; vertical-align: middle">&nbsp;&nbsp; en beoordeel deze werkgever met een&nbsp;&nbsp;</p>
-				<input type="number" min="1" max="10" step="0.1" placeholder="1-10" style="height:10%; width:5%; float:left;">
+				<input type="number" min="1" max="10" step="1" placeholder="1-10" style="height:10%; width:5%; float:left; background-color:#EEEEEE; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(160, 160, 160, 0.3); border-right-color: rgba(160, 160, 160, 0.3); border-bottom-color: rgba(160, 160, 160, 0.3); border-left-color: rgba(160, 160, 160, 0.3); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image-source: none; border-image-slice: 100% 100% 100% 100%; border-image-width: 1 1 1 1; border-image-outset: 0 0 0 0; border-image-repeat: stretch stretch;"> 
+				<p style="height:10%; float:left; vertical-align: middle">.</p>
 			</div>
 			<div style="clear:both"></div>
 			<h3>Recensie</h3>
@@ -31,7 +32,8 @@
 			<div id="alinea">
 				
 			</div>
-			<button onclick="add_alineas();" style="margin-bottom: 20px;">Categorie toevoegen</button>
+			<button onclick="add_alineas();" style="margin-bottom: 20px;"><a class="fa fa-plus-circle"></a>&nbsp;Categorie toevoegen</button>
+			<button style="background-color: lightblue" onclick="location.href='#'">Beoordeling plaatsen</button>
 			<script type="text/javascript">
         		function add_alineas() {
     			document.getElementById('alinea').innerHTML += '<input type="text" class="alineatitel" placeholder="Kopje..."><textarea placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>';
