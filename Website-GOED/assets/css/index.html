@@ -1,0 +1,249 @@
+<!DOCTYPE HTML>
+<?php session_start(); ?>
+<script>
+    function SetCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date()
+            exdate.setTime(exdate.getTime()+expiredays)
+            document.cookie=c_name+ "=" +escape(value)+
+            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    		
+        }
+		
+	
+</script>
+<?php
+
+
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$search = $mysqli->real_escape_string($_POST['search']);
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Vacature INNER JOIN Bedrijf ON Vacature.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Vacature.titel LIKE '%$search%' OR Vacature.plaats LIKE '%$search%' OR Vacature.postcode LIKE '%$search%'");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+		$titel = $rows['titel'];
+		$inhoud = $rows['inhoud'];
+		$bedrijfsnaam = $rows['bedrijfsnaam'];
+		$plaats = $rows['plaats'];
+		$beoordeling = $rows['beoordeling'];
+		$beroepsgroep = $rows['beroepsgroep'];
+		$opleidingsniveau = $rows['opleidingsniveau'];
+		$werkweek = $rows['uren'];
+		$salaris = $rows['salaris'];
+		
+		// Output van menu3 - het menu dat aan de rechterkant opent
+		$outputmenu .= "<div><span style='color: blue;'" . $titel . "</span>-" . $beoordeling . "<br/><br/>" . $plaats . "</div>";
+		
+		
+		// De output van vacatures op het hoofdscherm
+		$output .= "<div class =  \"VacatureInPHP\">
+		<a href= \"#menu3\" onClick=\"
+		SetCookie('GeefTitel','$titel','1500'); 
+		SetCookie('GeefBedrijfsnaam','$bedrijfsnaam','1500');
+		SetCookie('GeefBeoordeling','$beoordeling','1500'); 
+		SetCookie('GeefTitel','$titel','1500');
+		SetCookie('GeefPlaats','$plaats','1500');
+		SetCookie('GeefBeroepsgroep','$beroepsgroep','1500');
+		SetCookie('GeefOpleidingsniveau','$opleidingsniveau','1500');
+		SetCookie('GeefWerkweek','$werkweek','1500');
+		SetCookie('GeefSalaris','$salaris','1500');
+		\">
+		<span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
+		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
+		<span style=\"text-overflow: ellipsis;\">$inhoud</span><br></div><br>";
+		
+		
+		
+	}
+ }
+ // Als er geen overeenkomende resultaten zijn
+ else {
+		$output = "Geen overeenkomende zoekresultaten";
+      }
+}
+?>
+<html>
+	<head>
+		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
+		<title>Westwork</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+	
+	
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<nav class="links">					       
+					        <ul>
+					         <li class="menu">
+					          <a class="fa-user" href="#">Accountnaam</a>
+					          <a class="fa-caret-down" href="#menu2"></a>
+					         </li>
+					        </ul>
+					      </nav>
+					      
+						<h1><a href="#">Westwork</a></h1>
+						
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="POST" action="http://westwork.comxa.com/#">
+										<input type="text" name="search" />
+										<input type="submit" name="submit" value="" style="display: none;"/>
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-envelope" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links-->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Marco Beun - <span id="kleurbedrijf">Albert Heijn</span> </h3>											
+											<p><span id="kleurdatum">12-05-16:</span> Bij deze nodigen we u uit voor...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+											
+									</li>
+									<li>
+										<a href="#">
+											<h3>Rick van Boven - <span id="kleurbedrijf">Philips</span></h3>
+											<p><span id="kleurdatum">02-06-16:</span> Jammergenoeg is de positie...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Jeremiah Elsten - <span id="kleurbedrijf"> EBAP Con.</span> </h3>
+											<p><span id="kleurdatum">05-06-16:</span> The position is still available, if...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Brom Doel - <span id="kleurbedrijf">Hema</span></h3>
+											<p><span id="kleurdatum">05-06-16:</span> Wij zien u graag maandag voor uw eerste...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+								</ul>
+							</section>
+							
+						<!-- Actions-->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-envelope">Berichten inbox bekijken</a></li>
+								</ul>
+							</section>
+
+					</section>
+					
+					
+					
+				<section id="menu2">
+
+							<section>
+								<ul class="actions vertical">
+								    <li><a href="register.php" class="button big fit fa-file">Registreren</a></li>
+									<li><a href="login.php" class="button big fit fa-file">Inloggen</a></li>
+									<li><a href="#" class="button big fit fa-file">CV</a></li>
+									<li><a href="#" class="button big fit fa-user-plus">Account upgraden</a></li>
+									<li><a href="#" class="button big fit fa-user">Profiel</a></li>
+									<li><a href="#" class="button big fit fa-pencil-square-o ">Vacature beheer</a></li>
+									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
+								</ul>
+							</section>
+
+					</section>
+					
+					
+					
+					
+
+			</div>
+			
+
+<section id= "menu3">
+							<section>
+								<?php
+									$cookie_name = "GeefTitel";
+									$cookie_name2 = "GeefBedrijfsnaam";
+									$cookie_name3 = "GeefBeoordeling";
+									$cookie_name4 = "GeefPlaats";
+									$cookie_name5 = "GeefBeroepsgroep";
+									$cookie_name6 = "GeefOpleidingsniveau";
+									$cookie_name7 = "GeefWerkweek";
+									$cookie_name8 = "GeefSalaris";
+									If (!isset($_COOKIE[$cookie_name])) {
+									echo "cookie is not set. Refresh de pagina."; }
+									else {
+									// action if cookie is set
+									echo "<h3> $_COOKIE[$cookie_name] </h3>
+									<span style=\"font-size: 20px; font-weight: 400;\"> $_COOKIE[$cookie_name2] <i class= \"fa fa-star\" aria-hidden='true'></i> $_COOKIE[$cookie_name3]
+									<br/> Te $_COOKIE[$cookie_name4] <i class= \"fa fa-star\" aria-hidden='true'></i> (BEOORDELING) </span><br/><br/>
+									
+									<a href=\"#\" class=\"button big fit fa-envelope\"> Vacature Locken </a>
+									<hr style=\"height: 5px; border: 0; box-shadow: 0 5px 5px -5px #8c8b8b inset;\">
+									<u style=\"font-weight: 300;\"> Beroepsgroep:</u><br/> $_COOKIE[$cookie_name5] <br/><br/>
+										 <u style=\"font-weight: 300;\"> Opleidingsniveau</u><br/> $_COOKIE[$cookie_name6] <br/><br/>
+										 <u style=\"font-weight: 300;\"> Werkweek:</u><br/> $_COOKIE[$cookie_name7]<br/><br/>
+										 <u style=\"font-weight: 300;\"> Salaris:</u><br/> $_COOKIE[$cookie_name8] euro  <br/><br/>
+									
+									
+									<a href=\"#\" class=\"button big fit fa-envelope\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lees meer </a>";
+										 
+									}
+									
+								?>
+							
+							
+							</section>
+
+					</section>
+		<?php echo "<div class =  \"Vacatureresultaten\">" . $output . "</div>"; ?>
+	
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

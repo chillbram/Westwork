@@ -3201,6 +3201,7 @@
 		-ms-transition: opacity 0.5s ease;
 		transition: opacity 0.5s ease;
 		margin: 0 auto;
+		margin-bottom: 25px;
 		max-width: 100%;
 		opacity: 1;
 		padding: 4.5em;
@@ -3848,6 +3849,32 @@ html, body{
   padding: 0;
 }
 
+.VacatureInPHP {
+	display: inline-block;
+    width: 750px;
+    height: 175px;
+    margin: 10px;
+    border: 0.5px solid black;
+	background-color: white;
+	overflow: hidden;
+    text-overflow: "...";
+	
+}
+
+.bericht{
+	 width: 100%;
+	 height:25%;
+	 border-bottom: solid;
+	 border-color: lightgrey;
+	 border-width: 1px;
+	 padding: 0 5px 0 5px;
+	 white-space:nowrap;
+}
+
+.bericht:hover{
+	cursor:pointer;	
+}
+
 .vaclijst div {
   margin: 20px;
 }
@@ -3885,6 +3912,7 @@ html, body{
 	border-spacing: 2em;
 	top:100%;
 }*/
+
 
 .Vacatureresultaten{
 	text-align: left;
@@ -3959,6 +3987,25 @@ color: #0068b0;
 }
 
 .Recensievak{
-	
+	display: inline-block;
+	float:left;
+	width: 25%;
+	border: 0.5px solid black;
+	height: 250px;
+	line-height: 93%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background: #e7eff7;
+	padding-left: 10px;
+	padding-top: 10px;
 }
+
+.Recensievaktekst {
+	display: inline-block;
+	height: 50%;
+	line-height: 93%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 

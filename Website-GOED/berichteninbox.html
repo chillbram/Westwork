@@ -20,16 +20,20 @@
 			
 			<div style="width:100%">
 				<h1>Berichteninbox</h1>
-				<div style="margin: auto; float: left">
-					<button><a class="fa fa-plus-circle">Nieuw bericht</a></button>
+				<div style="margin: auto; float: left; width:15%">
+					<button style="width:100%"><a class="fa fa-plus-circle"></a> Nieuw bericht</button>
 				</div>
-				<div style="margin: auto; float: left">
-					<button><a class="fa fa-sort-alpha-asc">Sorteren</a></button>
+				<form id="search" method="get" action="#" style="width: 50%; float: left; margin:0">
+					<input type="text" name="query" placeholder="Zoeken..." />
+				</form>
+				<div style="margin: auto; float: left; width:15%">
+					<button style="width:100%"><a class="fa fa-sort-alpha-asc"></a> Sorteren</button>
 				</div>
-				<div style="width: 50%; margin: auto; float: left">
-					<form id="search" method="get" action="#">
-						<input type="text" name="query" placeholder="Zoeken..." />
-					</form>
+				<div style="clear:both"></div>
+				<div class="berichten" style="width:80%; border-style: solid; border-color: lightgrey;border-width: 1px;">
+					<div class="bericht"><a class="fa fa-envelope-o"></a>&nbsp; <b><a>Henk Biergaarde</a> &mdash; <a title="Contactpersoon reageert namens dit bedrijf.">Albert Heijn</a></b><br /><i>Vandaag 09:22:</i>&nbsp;&nbsp;"Beste, Wij hebben verder geen informatie over het gemiddeld aantal uur dat ..."</div>					<div class="bericht"><a class="fa fa-envelope-o"></a>&nbsp; <b><a>Viktor Bussnel</a></a></b><br /><i>Gisteren 22:18:</i>&nbsp;&nbsp;"Heb jij inmiddels al teruggehoord van dat stomme marketingbedrijf uit Noord-Kazachstan waar je een paar dagen..."</div>
+					<div class="bericht"><b><a>Dave Jonben</a> &mdash; <a title="Contactpersoon reageert namens dit bedrijf.">Hogeschool van Capelle</a></b><br /><i>13-6-2016:</i>&nbsp;&nbsp;"Beste, Wij hebben verder geen informatie over het gemiddeld aantal uur dat ..."</div>
+					<div class="bericht"><b><a>Jeremiah Damerott</a></a></b><br /><i>2-2-2015:</i>&nbsp;&nbsp;"Goeie vraag. Ik heb geen idee hoe vaak ik nog naar dat ene horecabedrijf moet voor ongereguleerd slavenwerk. Jij?"</div>
 				</div>
 			</div>
 		</div>
