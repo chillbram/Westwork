@@ -41,6 +41,7 @@ $search = $mysqli->real_escape_string($_POST['search']);
 		$opleidingsniveau = $rows['opleidingsniveau'];
 		$werkweek = $rows['uren'];
 		$salaris = $rows['salaris'];
+		$vacatureID = $rows['vacatureID'];
 		
 		// Output van menu3 - het menu dat aan de rechterkant opent
 		$outputmenu .= "<div><span style='color: blue;'" . $titel . "</span>-" . $beoordeling . "<br/><br/>" . $plaats . "</div>";
@@ -58,6 +59,7 @@ $search = $mysqli->real_escape_string($_POST['search']);
 		SetCookie('GeefOpleidingsniveau','$opleidingsniveau','1500');
 		SetCookie('GeefWerkweek','$werkweek','1500');
 		SetCookie('GeefSalaris','$salaris','1500');
+		SetCookie('GeefvacatureID','$vacatureID','1500');
 		\">
 		<span style=\"color: blue;font-size:20px\">$titel</span></a> - <span style= \"font-size: 20px\">$beoordeling</span> 
 		<i class= \"fa fa-star\" aria-hidden='true'></i><br/><span style=\"font-weight:bold\">$bedrijfsnaam</span> - $plaats<br/>
@@ -209,23 +211,23 @@ $search = $mysqli->real_escape_string($_POST['search']);
 									$cookie_name6 = "GeefOpleidingsniveau";
 									$cookie_name7 = "GeefWerkweek";
 									$cookie_name8 = "GeefSalaris";
+									$cookie_name9 = "GeefvacatureID";
 									If (!isset($_COOKIE[$cookie_name])) {
 									echo "cookie is not set"; }
 									else {
 									// action if cookie is set
 									echo "<h3> $_COOKIE[$cookie_name] </h3>
 									<span style=\"font-size: 20px; font-weight: 400;\"> $_COOKIE[$cookie_name2] <i class= \"fa fa-star\" aria-hidden='true'></i> $_COOKIE[$cookie_name3]
-									<br/> Te $_COOKIE[$cookie_name4] <i class= \"fa fa-star\" aria-hidden='true'></i> (BEOORDELING) </span><br/><br/>
+									<br/> Te $_COOKIE[$cookie_name4]<br/><br/>
 									
-									<a href=\"#\" class=\"button big fit fa-envelope\"> Vacature Locken </a>
+									<a href=\"http://westwork.comxa.com/VacaturePaginaID$_COOKIE[$cookie_name9].html\" class=\"button big fit\"> Vacature Bekijken </a>
 									<hr style=\"height: 5px; border: 0; box-shadow: 0 5px 5px -5px #8c8b8b inset;\">
 									<u style=\"font-weight: 300;\"> Beroepsgroep:</u><br/> $_COOKIE[$cookie_name5] <br/><br/>
 										 <u style=\"font-weight: 300;\"> Opleidingsniveau</u><br/> $_COOKIE[$cookie_name6] <br/><br/>
 										 <u style=\"font-weight: 300;\"> Werkweek:</u><br/> $_COOKIE[$cookie_name7]<br/><br/>
-										 <u style=\"font-weight: 300;\"> Salaris:</u><br/> $_COOKIE[$cookie_name8] euro  <br/><br/>
+										 <u style=\"font-weight: 300;\"> Salaris:</u><br/> $_COOKIE[$cookie_name8] euro  <br/><br/>";
 									
 									
-									<a href=\"#\" class=\"button big fit fa-envelope\"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lees meer </a>";
 										 
 									}
 									

@@ -121,107 +121,64 @@
 					</section>
 			</div>
 					
-			<div id="VacatureInformatie">
-			<div class="VacatureTekst"><span style="color: #0068b0;"> Manager Vastgoedstrategie </span> in <select class="VacatureDropDown"><option value="Amersfoort">Amersfoort</option></select></div> 
-		
-			
-			<div class="VacatureInfoGegevens">
-			
-			<span style="font-size: 32px; font-weight: 650;"> Informatie </span>
-			<hr style="Margin-top: 3px; Margin-bottom: 7px;">
-			<span style="font-weight: bold;"> Locatie:</span><br>
-			Amersfoort<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Beroepsgroep:</span> <br>
-			Management / Business<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Opleidingsniveau:</span><br>
-			WO<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Werkweek:</span><br>
-			32 - 40 uur<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Werkgever:</span><br>
-			Herman de Groot<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Salaris</span><br>
-			7000 Euro<br>
+					
+		<div style="width: 100%">
+		<h1 style="text-align: center;"><span style="font-size: 20px">Vacature aanmaken</span><br />Stap 1: Algemene informatie | <a href="vacatureaanmaak stap 2.html" style="font-size:10px; color: dimgray">Stap 2: Aanvullende informatie</a></h1><br />
+		<form method="post" action="#">
+		<input type="text" name="functietitel" placeholder="Functietitel..." style="width: 70%" />			
+		<div style="width:50%">
+		<br /><h2>Algemene informatie:</h2>
+					Sector: 
+					<select style="-moz-appearance: menulist; -webkit-appearance: menulist; appearance: menu">
+						<option value="" disabled selected hidden>Kies een optie</option>
+  						<option value="financieel">Accounting / Financieel</option>
+  						<option value="administratief">Administratief / Secretarieel</option>
+  						<option value="bouw">Bouw</option>
+  						<option value="creatief">Creatief / Design</option>
+  						<option value="gezondheidszorg">Gezondheidszorg</option>
+  						<option value="horeca">Horeca</option>
+  						<option value="installatie">Installatie / Onderhoud / Reparatie</option>
+  						<option value="it">IT / Software Development</option>
+  						<option value="juridisch">Juridisch</option>
+  						<option value="klantenservice">klantenservice</option>
+  						<option value="kwaliteitscontrole">Kwaliteitscontrole / Veiligheid</option>
+  						<option value="logistiek">Logistiek / Transport / Inkoop</option>
+  						<option value="management">Management / Business</option>
+  						<option value="marketing">Marketing / Product</option>
+					</select>
+					<br />Opleidingsniveau:
+					<select style="-moz-appearance: menulist; -webkit-appearance: menulist; appearance: menu">
+						<option value="" disabled selected hidden>Kies een optie</option>
+  						<option value="geen">Geen / Niet van toepassing</option>
+  						<option value="basisonderwijs">Basisonderwijs</option>
+  						<option disabled>Voortgezet onderwijs</option>
+  						<option value="praktijkonderwijs"><b>Praktijkonderwijs</b></option>
+  						<option value="vmbo">Vmbo</option>
+  						<option value="havo">Havo</option>
+  						<option value="vwo">Vwo</option>
+  						<option disabled>Hoger onderwijs</option>
+  						<option value="mbo">Mbo</option>
+  						<option value="hbo">Hbo</option>
+  						<option value="universitair">Universitair</option>
+					</select>
+					<br />Werkweek:
+					<input type="number" name="uurmin" placeholder="Min. uur" min="0" max="168" style="width: 15%" /> - <input type="number" name="uurmax" placeholder="Max. uur" min="0" max="168" style="width: 15%" />&nbsp;uur
+						<div id="locations" style="width:100%; padding-top: 20px">
+						<input type="text" class="locatieAdd" placeholder="Locatie...">
+						<script type="text/javascript">
+        					function add_fields() {
+    							document.getElementById('locations').innerHTML += '<input type="text" class="locatieAdd" placeholder="Locatie...">';
+							}
+						</script>
+						 </div>
+					<button type="button" class="locaties" onclick="add_fields();">Locatie toevoegen</button>
+					</div>
+				</form>
+						<div style="text-align: center; padding-top: 25px;">
+							<button style="float:left; margin-right: 20px; background-color: lightblue" onclick="location.href='vacatureaanmaak stap 2.html'">Verder ></button>
+						</div>
 			</div>
-			
-			<div class="Omschrijving" ><h1>Functieomschrijving</h1>
-			<p>In deze uitdagende en zelfstandige functie ben je verantwoordelijk voor de ontwikkeling van jouw team
-			en onderhoud je actief contacten met bestaande en nieuwe relaties. Als MT-lid geef je mede richting aan de verdere succesvolle
-			ontwikkeling van Herman de Groot Ingenieurs. Naast jouw marktgerichte activiteiten adviseer je bestaande relaties en ben je een 
-			vraagbaak voor collega’s. Om deze uitdaging waar te maken heb je een academische opleiding in het vakgebied en aantal jaren 
-			werkervaring in de vastgoedmarkt. Je beschikt over leidinggevende ervaring en voelt je thuis op uiteenlopende niveaus. Je bent 
-			dan ook een communicatieve en verbaalvaardige professional, die mensen aan zich weet te binden en te overtuigen van jouw visie. 
-			Dynamiek en daadkracht gecombineerd met een gezonde dosis humor kenmerken jouw stijl</p> </div> 
-			<div style="clear:left"></div>
-			<div class="Solliciteerbutton"><button style="border: 0.5px solid black;"> Solliciteer </button></div>
-			
-			<div class="Recensie">
-			Recensies Herman de Groot.
 		</div>
-		</div>
-<?php
-
-
-$output = null;
-
-// connect to the database
-$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
-
-
-// Query the database
- $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Herman de Groot' ORDER BY RAND() LIMIT 3");
- 
- if($resultSet->num_rows > 0)
- {
-	while($rows = $resultSet->fetch_assoc())
-	{
-		
-		$beoordelingReview = $rows['reviewInhoud'];
-		$functieReview =$rows['Functie'];
-		$cijferReview = $rows['FunctieBeoordeling'];
-		$PlaatsBedrijf = $rows['plaats'];
-		$StraatBedrijf = $rows['straatNr'];
-		$Bevestigd = $rows['Bevestigd'];
-		
-		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
-		else {$BevestigdOutput = "";}
-		
-		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
-		else {$Cijferkleur = "red";}
-		
-		$OutputReview .= "<div class=\"Recensievak\">
-						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
-						<br/>
-						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
-						<br/>
-						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
-						<br/>
-						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
-						</div>";
-	}
- }
- 
-
-?>
-
-	<div id="RecensieGedeelte">
-	<!-- echo het resultaat -->
-	<?php echo "<div>" . $OutputReview . "</div>"; ?>
-	<div class="RecensieTot">
-	<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <a href="http://westwork.comxa.com/recensielijstHermanDeGroot.html" >Bekijk alle recensies</a>
-	
-	</div>
-	
-	<div class="RecensieAdd">
-	<i class="fa fa-plus-circle" aria-hidden="true"></i> <a href="http://westwork.comxa.com/beoordelingaanmaakHermanDeGroot.html" >Plaats een recensie </a>
-	
-	</div>
-	
-	</div>
 			
 			
 		

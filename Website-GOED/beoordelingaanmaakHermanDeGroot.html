@@ -1,6 +1,25 @@
 <!DOCTYPE HTML>
 
+<?php
 
+
+$output = null;
+
+if(isset($_POST["submit"]))
+{
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+// Get String value of input textbox
+$functie = $mysqli->real_escape_string($_POST['functie']);
+$cijfer = $mysqli->real_escape_string($_POST['cijfer']);
+$inhoud = $mysqli->real_escape_string($_POST['beschrijving']);
+$mydate=date("d-m-Y");
+$datum = "$mydate";
+// Query the database
+ $resultSet = $mysqli->query("INSERT INTO Review (bedrijfID, bedrijfsnaam, Functie, FunctieBeoordeling, reviewInhoud, geplaatstDatum) VALUES (1,'Herman de Groot','$functie','$cijfer', '$inhoud', '$datum')");
+}
+?>
 <html>
 	<head>
 		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
@@ -120,108 +139,34 @@
 
 					</section>
 			</div>
-					
-			<div id="VacatureInformatie">
-			<div class="VacatureTekst"><span style="color: #0068b0;"> Manager Vastgoedstrategie </span> in <select class="VacatureDropDown"><option value="Amersfoort">Amersfoort</option></select></div> 
 		
-			
-			<div class="VacatureInfoGegevens">
-			
-			<span style="font-size: 32px; font-weight: 650;"> Informatie </span>
-			<hr style="Margin-top: 3px; Margin-bottom: 7px;">
-			<span style="font-weight: bold;"> Locatie:</span><br>
-			Amersfoort<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Beroepsgroep:</span> <br>
-			Management / Business<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Opleidingsniveau:</span><br>
-			WO<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Werkweek:</span><br>
-			32 - 40 uur<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Werkgever:</span><br>
-			Herman de Groot<br>
-			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
-			<span style="font-weight: bold;">Salaris</span><br>
-			7000 Euro<br>
+		<div class="GehelePagina">
+		<h1>Beoordeling plaatsen</h1>
+			<div style="width: 100%">
+			<form id="submit" method="POST" action='http://westwork.comxa.com/VacaturePaginaID1.html'>
+				<p style="height:10%; float:left; vertical-align: middle">Ik heb gewerkt bij <span style="color: blue">Herman de Groot</span> als&nbsp;&nbsp;</p>
+				<input type="text" name="functie" placeholder="functietitel..." style="height:10%; width:30%; float:left; padding: 0 4px 0 4px">
+				<p style="height:10%; float:left; vertical-align: middle">&nbsp;&nbsp; en beoordeel deze werkgever met een&nbsp;&nbsp;</p>
+				<input type="number" min="1" max="10" step="1" name="cijfer" placeholder="1-10" style="height:10%; width:5%; float:left; background-color:#EEEEEE; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(160, 160, 160, 0.3); border-right-color: rgba(160, 160, 160, 0.3); border-bottom-color: rgba(160, 160, 160, 0.3); border-left-color: rgba(160, 160, 160, 0.3); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image-source: none; border-image-slice: 100% 100% 100% 100%; border-image-width: 1 1 1 1; border-image-outset: 0 0 0 0; border-image-repeat: stretch stretch;"> 
+				<p style="height:10%; float:left; vertical-align: middle">.</p>
 			</div>
-			
-			<div class="Omschrijving" ><h1>Functieomschrijving</h1>
-			<p>In deze uitdagende en zelfstandige functie ben je verantwoordelijk voor de ontwikkeling van jouw team
-			en onderhoud je actief contacten met bestaande en nieuwe relaties. Als MT-lid geef je mede richting aan de verdere succesvolle
-			ontwikkeling van Herman de Groot Ingenieurs. Naast jouw marktgerichte activiteiten adviseer je bestaande relaties en ben je een 
-			vraagbaak voor collega’s. Om deze uitdaging waar te maken heb je een academische opleiding in het vakgebied en aantal jaren 
-			werkervaring in de vastgoedmarkt. Je beschikt over leidinggevende ervaring en voelt je thuis op uiteenlopende niveaus. Je bent 
-			dan ook een communicatieve en verbaalvaardige professional, die mensen aan zich weet te binden en te overtuigen van jouw visie. 
-			Dynamiek en daadkracht gecombineerd met een gezonde dosis humor kenmerken jouw stijl</p> </div> 
-			<div style="clear:left"></div>
-			<div class="Solliciteerbutton"><button style="border: 0.5px solid black;"> Solliciteer </button></div>
-			
-			<div class="Recensie">
-			Recensies Herman de Groot.
-		</div>
-		</div>
-<?php
+			<div style="clear:both"></div>
+			<h3>Recensie</h3>
+			<input type="text" readonly="readonly" class="alineatitel" value="Samenvatting">
+			<textarea name="beschrijving" placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>
+			<div id="alinea">
+				
+			</div>
+			<button onclick="add_alineas();" style="margin-bottom: 20px;"><a class="fa fa-plus-circle"></a>&nbsp;Categorie toevoegen</button>
+			<input type="submit" name="submit" value="Plaatsen" style="background-color: lightblue""/>
+			</form>
+			<script type="text/javascript">
+        		function add_alineas() {
+    			document.getElementById('alinea').innerHTML += '<input type="text" class="alineatitel" placeholder="Kopje..."><textarea placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>';
+				}
+			</script>
 
-
-$output = null;
-
-// connect to the database
-$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
-
-
-// Query the database
- $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Herman de Groot' ORDER BY RAND() LIMIT 3");
- 
- if($resultSet->num_rows > 0)
- {
-	while($rows = $resultSet->fetch_assoc())
-	{
-		
-		$beoordelingReview = $rows['reviewInhoud'];
-		$functieReview =$rows['Functie'];
-		$cijferReview = $rows['FunctieBeoordeling'];
-		$PlaatsBedrijf = $rows['plaats'];
-		$StraatBedrijf = $rows['straatNr'];
-		$Bevestigd = $rows['Bevestigd'];
-		
-		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
-		else {$BevestigdOutput = "";}
-		
-		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
-		else {$Cijferkleur = "red";}
-		
-		$OutputReview .= "<div class=\"Recensievak\">
-						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
-						<br/>
-						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
-						<br/>
-						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
-						<br/>
-						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
-						</div>";
-	}
- }
- 
-
-?>
-
-	<div id="RecensieGedeelte">
-	<!-- echo het resultaat -->
-	<?php echo "<div>" . $OutputReview . "</div>"; ?>
-	<div class="RecensieTot">
-	<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <a href="http://westwork.comxa.com/recensielijstHermanDeGroot.html" >Bekijk alle recensies</a>
-	
-	</div>
-	
-	<div class="RecensieAdd">
-	<i class="fa fa-plus-circle" aria-hidden="true"></i> <a href="http://westwork.comxa.com/beoordelingaanmaakHermanDeGroot.html" >Plaats een recensie </a>
-	
-	</div>
-	
-	</div>
+			</div>
 			
 			
 		
