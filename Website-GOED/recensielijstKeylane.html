@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+
+<?php
+
+$output = null;
+
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Keylane' LIMIT 10");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+		
+		$beoordelingReview = $rows['reviewInhoud'];
+		$functieReview =$rows['Functie'];
+		$cijferReview = $rows['FunctieBeoordeling'];
+		$PlaatsBedrijf = $rows['plaats'];
+		$StraatBedrijf = $rows['straatNr'];
+		$Bevestigd = $rows['Bevestigd'];
+		
+		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
+		else {$BevestigdOutput = "";}
+		
+		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
+		else {$Cijferkleur = "red";}
+		
+	
+		$OutputBeoordeling .= "<div style=\"width:80%; border: solid; border-width: 1px; padding: 5px;\">
+				<div class=\"recensieitem\">
+
+				
+						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
+						<br/>
+						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
+						<br/>
+						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
+						<br/>
+						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
+						</div></div>";
+	}
+ }
+ 
+
+?>
+<html>
+	<head>
+		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
+		<title>Westwork</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	</head>
+	<body>
+	
+	
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<nav class="links">					       
+					        <ul>
+					         <li class="menu">
+					          <a class="fa-user" href="#">Accountnaam</a>
+					          <a class="fa-caret-down" href="#menu2"></a>
+					         </li>
+					        </ul>
+					      </nav>
+					      
+						<h1><a href="#">Westwork</a></h1>
+						
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="POST" action="http://westwork.comxa.com/#">
+										<input type="text" name="search" />
+										<input type="submit" name="submit" value="" style="display: none;"/>
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-envelope" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links-->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Marco Beun - <span id="kleurbedrijf">Albert Heijn</span> </h3>											
+											<p><span id="kleurdatum">12-05-16:</span> Bij deze nodigen we u uit voor...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+											
+									</li>
+									<li>
+										<a href="#">
+											<h3>Rick van Boven - <span id="kleurbedrijf">Philips</span></h3>
+											<p><span id="kleurdatum">02-06-16:</span> Jammergenoeg is de positie...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Jeremiah Elsten - <span id="kleurbedrijf"> EBAP Con.</span> </h3>
+											<p><span id="kleurdatum">05-06-16:</span> The position is still available, if...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Brom Doel - <span id="kleurbedrijf">Hema</span></h3>
+											<p><span id="kleurdatum">05-06-16:</span> Wij zien u graag maandag voor uw eerste...</p>
+											<a class="fa-angle-double-right" href="#"></a>
+										</a>
+									</li>
+								</ul>
+							</section>
+							
+						<!-- Actions-->
+							<section>
+								<ul class="actions vertical">
+									<li><a href="#" class="button big fit fa-envelope">Berichten inbox bekijken</a></li>
+								</ul>
+							</section>
+
+					</section>
+					
+					
+					
+				<section id="menu2">
+
+							<section>
+								<ul class="actions vertical">
+								    <li><a href="register.php" class="button big fit fa-file">Registreren</a></li>
+									<li><a href="login.php" class="button big fit fa-file">Inloggen</a></li>
+									<li><a href="#" class="button big fit fa-file">CV</a></li>
+									<li><a href="#" class="button big fit fa-user-plus">Account upgraden</a></li>
+									<li><a href="#" class="button big fit fa-user">Profiel</a></li>
+									<li><a href="#" class="button big fit fa-pencil-square-o ">Vacature beheer</a></li>
+									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
+								</ul>
+							</section>
+					
+					</section>
+			</div>
+		
+		<div class="GehelePagina">
+		<h1>Recensies <span style="color: blue">Keylane</span></h1>
+			<button style="float:left" onclick="location.href='beoordelingaanmaakKeylane.html'"><a class="fa fa-plus-circle"></a>&nbsp;Beoordeling toevoegen</button>
+			<button style="float:left"><a class="fa fa-sort-alpha-asc"></a>&nbsp;Sorteren</button>
+			<div style="clear:both"></div>
+			
+			
+			<?php echo $OutputBeoordeling ?>
+			
+			
+		<div class="Recensielijst-next"><a class="fa fa-arrow-circle-right"></a><a href=""> Volgende pagina </a></div>
+		</div>
+		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
+
+			</div>
+			
+			
+		
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
