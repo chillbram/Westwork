@@ -1,52 +1,25 @@
 <!DOCTYPE HTML>
-
 <?php
+
 
 $output = null;
 
+if(isset($_POST["submit"]))
+{
 // connect to the database
 $mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
 
-
+// Get String value of input textbox
+$functie = $mysqli->real_escape_string($_POST['functie']);
+$cijfer = $mysqli->real_escape_string($_POST['cijfer']);
+$inhoud = $mysqli->real_escape_string($_POST['beschrijving']);
+$mydate=date("d-m-Y");
+$datum = "$mydate";
 // Query the database
- $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Kippie' LIMIT 10");
- 
- if($resultSet->num_rows > 0)
- {
-	while($rows = $resultSet->fetch_assoc())
-	{
-		
-		$beoordelingReview = $rows['reviewInhoud'];
-		$functieReview =$rows['Functie'];
-		$cijferReview = $rows['FunctieBeoordeling'];
-		$PlaatsBedrijf = $rows['plaats'];
-		$StraatBedrijf = $rows['straatNr'];
-		$Bevestigd = $rows['Bevestigd'];
-		
-		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
-		else {$BevestigdOutput = "";}
-		
-		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
-		else {$Cijferkleur = "red";}
-		
-	
-		$OutputBeoordeling .= "<div style=\"width:80%; border: solid; border-width: 1px; padding: 5px;\">
-				<div class=\"recensieitem\">
-
-				
-						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
-						<br/>
-						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
-						<br/>
-						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
-						<br/>
-						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
-						</div></div>";
-	}
- }
- 
-
+ $resultSet = $mysqli->query("INSERT INTO Review (bedrijfID, bedrijfsnaam, Functie, FunctieBeoordeling, reviewInhoud, geplaatstDatum) VALUES (5,'Keylane','$functie','$cijfer', '$inhoud', '$datum')");
+}
 ?>
+
 <html>
 	<head>
 		<link rel="shortcut icon" type="public_html/images/x-icon" href="images/favicon.ico">
@@ -163,25 +136,112 @@ $mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651
 									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
 								</ul>
 							</section>
-					
+
 					</section>
 			</div>
+					
+			<div id="VacatureInformatie">
+			<div class="VacatureTekst"><span style="color: #0068b0;">  Informatieanalist  </span> in <select class="VacatureDropDown"><option value="Amersfoort">Utrecht</option></select></div> 
 		
-		<div class="GehelePagina">
-		<h1>Recensies <span style="color: blue">Kippie</span></h1>
-			<button style="float:left" onclick="location.href='beoordelingaanmaakKippie.html'"><a class="fa fa-plus-circle"></a>&nbsp;Beoordeling toevoegen</button>
-			<button style="float:left"><a class="fa fa-sort-alpha-asc"></a>&nbsp;Sorteren</button>
-			<div style="clear:both"></div>
 			
+			<div class="VacatureInfoGegevens">
 			
-			<?php echo $OutputBeoordeling ?>
-			
-			
-		<div class="Recensielijst-next"><a class="fa fa-arrow-circle-right"></a><a href=""> Volgende pagina </a></div>
-		</div>
-		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
-
+			<span style="font-size: 32px; font-weight: 650;"> Informatie </span>
+			<hr style="Margin-top: 3px; Margin-bottom: 7px;">
+			<span style="font-weight: bold;"> Locatie:</span><br>
+			Utrecht<br>
+			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
+			<span style="font-weight: bold;">Beroepsgroep:</span> <br>
+			Projectsmanagement<br>
+			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
+			<span style="font-weight: bold;">Opleidingsniveau:</span><br>
+			WO<br>
+			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
+			<span style="font-weight: bold;">Werkweek:</span><br>
+			32 - 40 uur<br>
+			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
+			<span style="font-weight: bold;">Werkgever:</span><br>
+			Keylane<br>
+			<hr style="Margin-top: 11px; Margin-bottom: 11px;">
+			<span style="font-weight: bold;">Salaris</span><br>
+			3500 tot 5000 euro<br>
 			</div>
+			
+			<div class="Omschrijving" ><h1>Functieomschrijving</h1>
+			<p>
+			
+			Als informatieanalist ben je gesprekspartnervoor de klant bij business vraagstukken. Jij weet als geen ander de verbinding te leggen tussen het product en de business. Je adviseert de klant bij complexe procesvraagstukken en vertaalt dit naar een helder plan van aanpak. 
+ 
+
+Op ons kantoor in Utrecht werken we met ruim 170 collega’s aan de realisatie van de standaard softwareoplossing voor onze klanten binnen het domein schadeverzekeraars.
+			
+			</p> </div> 
+			<div style="clear:left"></div>
+			<div class="Solliciteerbutton"><button style="border: 0.5px solid black;"> Solliciteer </button></div>
+			
+			<div class="Recensie">
+			Recensies Keylane
+		</div>
+		</div>
+<?php
+
+
+$output = null;
+
+// connect to the database
+$mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
+
+
+// Query the database
+ $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Keylane' ORDER BY RAND() LIMIT 3");
+ 
+ if($resultSet->num_rows > 0)
+ {
+	while($rows = $resultSet->fetch_assoc())
+	{
+		
+		$beoordelingReview = $rows['reviewInhoud'];
+		$functieReview =$rows['Functie'];
+		$cijferReview = $rows['FunctieBeoordeling'];
+		$PlaatsBedrijf = $rows['plaats'];
+		$StraatBedrijf = $rows['straatNr'];
+		$Bevestigd = $rows['Bevestigd'];
+		
+		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
+		else {$BevestigdOutput = "";}
+		
+		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
+		else {$Cijferkleur = "red";}
+		
+		$OutputReview .= "<div class=\"Recensievak\">
+						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
+						<br/>
+						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
+						<br/>
+						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
+						<br/>
+						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
+						</div>";
+	}
+ }
+ 
+
+?>
+
+	<div id="RecensieGedeelte">
+	<!-- echo het resultaat -->
+	<?php echo "<div>" . $OutputReview . "</div>"; ?>
+	<div class="RecensieTot">
+	<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> <a href="http://westwork.comxa.com/recensielijstKeylane.html" >Bekijk alle recensies</a>
+	
+	</div>
+	
+	<div class="RecensieAdd">
+	<i class="fa fa-plus-circle" aria-hidden="true"></i> <a href="http://westwork.comxa.com/beoordelingaanmaakKeylaneInformatieAnalist.html" >Plaats een recensie </a>
+	
+	</div>
+	
+	</div>
 			
 			
 		

@@ -2,50 +2,23 @@
 
 <?php
 
+
 $output = null;
 
+if(isset($_POST["submit"]))
+{
 // connect to the database
 $mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651_test");
 
-
+// Get String value of input textbox
+$functie = $mysqli->real_escape_string($_POST['functie']);
+$cijfer = $mysqli->real_escape_string($_POST['cijfer']);
+$inhoud = $mysqli->real_escape_string($_POST['beschrijving']);
+$mydate=date("d-m-Y");
+$datum = "$mydate";
 // Query the database
- $resultSet = $mysqli->query("SELECT * FROM Review INNER JOIN Bedrijf ON Review.bedrijfsnaam=Bedrijf.bedrijfsnaam WHERE Review.bedrijfsnaam LIKE 'Kippie' LIMIT 10");
- 
- if($resultSet->num_rows > 0)
- {
-	while($rows = $resultSet->fetch_assoc())
-	{
-		
-		$beoordelingReview = $rows['reviewInhoud'];
-		$functieReview =$rows['Functie'];
-		$cijferReview = $rows['FunctieBeoordeling'];
-		$PlaatsBedrijf = $rows['plaats'];
-		$StraatBedrijf = $rows['straatNr'];
-		$Bevestigd = $rows['Bevestigd'];
-		
-		if( $Bevestigd == "true"){ $BevestigdOutput = "<a class=\"fa fa-check\"></a>";}
-		else {$BevestigdOutput = "";}
-		
-		if ($cijferReview > "5") { $Cijferkleur = "#00CC00";}
-		else {$Cijferkleur = "red";}
-		
-	
-		$OutputBeoordeling .= "<div style=\"width:80%; border: solid; border-width: 1px; padding: 5px;\">
-				<div class=\"recensieitem\">
-
-				
-						$BevestigdOutput <span style=\"font-size: 19px; font-weight: bold;\"><span style=\"color: #0068b0;\">$functieReview </span> <span style=\"float: right; margin-right: 10px; color: $Cijferkleur\">$cijferReview </span></span><br/>
-						<br/>
-						<span style=\"font-size: 17px;\"><a class=\"fa fa-globe\"></a>&nbsp;$PlaatsBedrijf , $StraatBedrijf</span> <br/>
-						<br/>
-						<div class=\"Recensievaktekst\">$beoordelingReview </div><br/>
-						<br/>
-						<a class=\"fa fa-arrow-circle-right\"></a><a href=\"\"> Lees verder </a>
-						</div></div>";
-	}
- }
- 
-
+ $resultSet = $mysqli->query("INSERT INTO Review (bedrijfID, bedrijfsnaam, Functie, FunctieBeoordeling, reviewInhoud, geplaatstDatum) VALUES (3,'Keylane','$functie','$cijfer', '$inhoud', '$datum')");
+}
 ?>
 <html>
 	<head>
@@ -163,23 +136,35 @@ $mysqli = new MySQLi("mysql9.000webhost.com","a5841651_test","test123","a5841651
 									<li><a href="#" class="button big fit fa-cog">Instellingen</a></li>
 								</ul>
 							</section>
-					
+
 					</section>
 			</div>
 		
 		<div class="GehelePagina">
-		<h1>Recensies <span style="color: blue">Kippie</span></h1>
-			<button style="float:left" onclick="location.href='beoordelingaanmaakKippie.html'"><a class="fa fa-plus-circle"></a>&nbsp;Beoordeling toevoegen</button>
-			<button style="float:left"><a class="fa fa-sort-alpha-asc"></a>&nbsp;Sorteren</button>
+		<h1>Beoordeling plaatsen</h1>
+			<div style="width: 100%">
+			<form id="submit" method="POST" action='http://westwork.comxa.com/VacaturePaginaID5.html'>
+				<p style="height:10%; float:left; vertical-align: middle">Ik heb gewerkt bij <span style="color: blue">Keylane</span> als&nbsp;&nbsp;</p>
+				<input type="text" name="functie" placeholder="functietitel..." style="height:10%; width:30%; float:left; padding: 0 4px 0 4px">
+				<p style="height:10%; float:left; vertical-align: middle">&nbsp;&nbsp; en beoordeel deze werkgever met een&nbsp;&nbsp;</p>
+				<input type="number" min="1" max="10" step="1" name="cijfer" placeholder="1-10" style="height:10%; width:5%; float:left; background-color:#EEEEEE; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgba(160, 160, 160, 0.3); border-right-color: rgba(160, 160, 160, 0.3); border-bottom-color: rgba(160, 160, 160, 0.3); border-left-color: rgba(160, 160, 160, 0.3); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image-source: none; border-image-slice: 100% 100% 100% 100%; border-image-width: 1 1 1 1; border-image-outset: 0 0 0 0; border-image-repeat: stretch stretch;"> 
+				<p style="height:10%; float:left; vertical-align: middle">.</p>
+			</div>
 			<div style="clear:both"></div>
-			
-			
-			<?php echo $OutputBeoordeling ?>
-			
-			
-		<div class="Recensielijst-next"><a class="fa fa-arrow-circle-right"></a><a href=""> Volgende pagina </a></div>
-		</div>
-		<iframe src="footer.html" scrolling="no" width="100%" style="border: block"> </iframe>
+			<h3>Recensie</h3>
+			<input type="text" readonly="readonly" class="alineatitel" value="Samenvatting">
+			<textarea name="beschrijving" placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>
+			<div id="alinea">
+				
+			</div>
+			<button onclick="add_alineas();" style="margin-bottom: 20px;"><a class="fa fa-plus-circle"></a>&nbsp;Categorie toevoegen</button>
+			<input type="submit" name="submit" value="Plaatsen" style="background-color: lightblue"/>
+			</form>
+			<script type="text/javascript">
+        		function add_alineas() {
+    			document.getElementById('alinea').innerHTML += '<input type="text" class="alineatitel" placeholder="Kopje..."><textarea placeholder="Beoordeling..." rows="6" style="margin-bottom: 20px;"></textarea>';
+				}
+			</script>
 
 			</div>
 			
